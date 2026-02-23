@@ -10,7 +10,7 @@ excerpt: >-
   the AC light. The proposed network consists of two subnets that estimate local
   illuminant and their respective confidence maps which are combined into a
   weighted sum to estimate the illuminant of the image.
-date: 2024-02-17T00:00:00-08:00
+date: 2022-06-13T00:00:00-07:00
 venue: IEIE Conference on Signal Processing
 paperurl: https://academicpages.github.io/files/color_constancy_AC_EN.pdf
 citation: >-
