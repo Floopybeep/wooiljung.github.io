@@ -10,8 +10,10 @@ redirect_from:
 
 I routinely update my CV. The most recent update was at: Feb. 05, 2026
 
-[download my CV as a PDF](/files/CV_260205.pdf).
+[Download PDF](/files/CV_260205.pdf).
 
 <iframe src="/files/CV_260205.pdf" width="100%" height="800px" style="border: 1px solid #ccc;"></iframe>
+
+&nbsp;
 
 &nbsp;
