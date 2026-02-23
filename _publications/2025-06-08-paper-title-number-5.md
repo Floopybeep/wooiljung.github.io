@@ -14,7 +14,8 @@ date: 2022-06-13T00:00:00-07:00
 venue: IEIE Conference on Signal Processing
 paperurl: https://academicpages.github.io/files/color_constancy_AC_EN.pdf
 citation: >-
-  Jung, Wooil & Ha, Jeong-Won & Kim, Jong-Ok. (2022). Color Constancy Using
-  Amplitude Information of AC Light. 
+  Jung, W., Ha, J.-W., & Kim, J.-O. (2022). Color Constancy Using Amplitude
+  Information of AC Light. Proc. IEIE Conference on Signal Processing, pp.
+  1492-1494
 ---
 Using [MathJax](https://www.mathjax.org/) in the description is supported - $$E=mc^2$$ - however, the use must be mindful that the default delimiters are `$$...$$` and `\\[...\\]` which differs from the `$...$` that is typically expected.
