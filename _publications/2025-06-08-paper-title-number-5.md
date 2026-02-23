@@ -18,4 +18,4 @@ citation: >-
   Information of AC Light. Proc. IEIE Conference on Signal Processing, pp.
   1492-1494
 ---
-Using [MathJax](https://www.mathjax.org/) in the description is supported - $$E=mc^2$$ - however, the use must be mindful that the default delimiters are `$$...$$` and `\\[...\\]` which differs from the `$...$` that is typically expected.
+In this paper, multiple frames captured with a high-speed cameras were used to estimate the illuminant of the image. The proposed method exploits amplitude map generated from sinusoidal regression to estimate the varying intensity of the AC light. The proposed network consists of two subnets that estimate local illuminant and their respective confidence maps which are combined into a weighted sum to estimate the illuminant of the image.
