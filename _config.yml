@@ -6,7 +6,7 @@ name: Wooil Jung
 description: Your Name's academic portfolio
 url: https://wooiljung.com
 baseurl: ''
-repository: academicpages/academicpages.github.io
+repository: Floopybeep/wooiljung.github.io
 author:
   avatar: profile.png
   name: Wooil Jung
@@ -247,7 +247,7 @@ sass:
   sass_dir: _sass
   style: compressed
 permalink: /:categories/:title/
-timezone: Etc/UTC
+timezone: UTC/GMT -8 hours
 plugins:
   - jekyll-feed
   - jekyll-gist
