@@ -90,6 +90,13 @@ collections_config:
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
+  data:
+    path: _data
+    icon: data_usage
+    disable_url: true
+    disable_add: true
+    disable_add_folder: true
+    disable_file_actions: true
 _snippets_imports:
   jekyll: true
 timezone: America/Los_Angeles
