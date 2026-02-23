@@ -3,7 +3,7 @@
   "mode": "hosted",
   "build": {
     "hugoVersion": "0.128.1",
-    "rubyVersion": "3.1.0",
+    "rubyVersion": "2.7.3",
     "nodeVersion": "18",
     "denoVersion": "1.40.2",
     "install_command": "bundle install",
