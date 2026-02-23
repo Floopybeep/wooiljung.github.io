@@ -12,7 +12,7 @@ excerpt: >-
   weighted sum to estimate the illuminant of the image.
 date: 2022-06-13T00:00:00-07:00
 venue: IEIE Conference on Signal Processing
-paperurl: https://academicpages.github.io/files/color_constancy_AC_EN.pdf
+paperurl: https://www.wooiljung.com/files/color_constancy_AC_EN.pdf
 citation: >-
   Jung, W., Ha, J.-W., & Kim, J.-O. (2022). Color Constancy Using Amplitude
   Information of AC Light. Proc. IEIE Conference on Signal Processing, pp.
