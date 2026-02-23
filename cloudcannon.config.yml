@@ -9,6 +9,87 @@ collections_config:
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
+  portfolio:
+    path: _portfolio
+    icon: pergola
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  pages:
+    path: _pages
+    icon: wysiwyg
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  drafts:
+    path: _drafts
+    icon: event
+    disable_url: false
+    _inputs:
+      categories:
+        type: multiselect
+        options:
+          allow_create: true
+          allow_empty: true
+          values: collections.posts[*].categories
+        cascade: true
+      tags:
+        type: multiselect
+        options:
+          allow_create: true
+          allow_empty: true
+          values: collections.posts[*].tags
+        cascade: true
+    create:
+      publish_to: posts
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  posts:
+    path: _posts
+    icon: event_available
+    disable_url: false
+    _inputs:
+      categories:
+        type: multiselect
+        options:
+          allow_create: true
+          allow_empty: true
+          values: collections.posts[*].categories
+        cascade: true
+      tags:
+        type: multiselect
+        options:
+          allow_create: true
+          allow_empty: true
+          values: collections.posts[*].tags
+        cascade: true
+    add_options:
+      - name: Add Post
+      - name: Add Draft
+        collection: drafts
+    create:
+      path: >-
+        [relative_base_path]/{date|year}-{date|month}-{date|day}-{title|slugify}.[ext]
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  publications:
+    path: _publications
+    icon: functions
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  talks:
+    path: _talks
+    icon: masks
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
 _snippets_imports:
   jekyll: true
 timezone: America/Los_Angeles
