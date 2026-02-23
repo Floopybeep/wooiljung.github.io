@@ -6,12 +6,10 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Hi! I’m Wooil, a first-year MS student at UCSD studying Electrical and Computer Engineering! I have 3 years of industry experience as a Machine Learning engineer at LG, with a strong background in speech and audio. Currently, I am researching new and novel ways to improve reasoning in LLMs.
+Hi! I’m Wooil, a first-year MS student in Electrical and Computer Engineering at the University of California - San Diego.
 
-My current research interests are: latent space reasoning, agentic AI, RAG, and LLMs as reasoners.
+Before returning to academia, I worked as a Machine Learning Research Engineer at LG Electronics. Over three years, I orchestrated end-to-end training and inference pipelines for edge-deployed speech models, achieving a 98% recognition rate on flagship appliances while optimizing for strict hardware constraints. My technical expertise spans from C/C++ feature extraction APIs to modern deep learning architectures in pytorch.
 
-I am currently looking for a 2026 summer internship, so feel free to contact me at w3jung@ucsd.edu!
+Currently, I am expanding my focus to generative AI, building Claude-based agentic systems with vector databases and exploring novel latent space reasoning architectures for LLMs. Specifically, I am currently investigating variable-length latent space reasoning by extending the "Coconut" architecture to enable dynamic test-time compute allocation.
 
-I routinely update my CV, with the current version updated at February 06th, 2026.
-
-&nbsp;
+I am actively seeking a 2026 summer internship in AI/ML. Feel free to connect with me at w3jung@ucsd.edu!
