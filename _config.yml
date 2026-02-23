@@ -4,16 +4,14 @@ title: Wooil Jung
 title_separator: '-'
 name: Wooil Jung
 description: Your Name's academic portfolio
-url: https://wooiljung.com
+url: https://www.wooiljung.com
 baseurl: ''
 repository: Floopybeep/wooiljung.github.io
 author:
   avatar: profile.png
   name: Wooil Jung
-  pronouns: he/him
-  bio: >-
-    MS student at University of California - San Diego, Electrical and Computer
-    Engineering
+  pronouns: He/Him
+  bio: MS student at UCSD, Electrical and Computer Engineering
   location: San Diego, California
   employer: University of California, San Diego
   uri:
