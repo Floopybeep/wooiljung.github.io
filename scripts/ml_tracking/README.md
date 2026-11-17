@@ -8,7 +8,7 @@ ten minutes are marked delayed. A publisher failure does not affect training.
 
 ## Add a pipeline
 
-Edit `config.json` while the publisher is running; it reloads each cycle. Add an
+Copy `config.example.json` to a private host directory, then edit that `config.json` while the publisher is running; it reloads each cycle. Add an
 entry to `pipelines` with a unique `id`, `label`, `description`, `base_dir`,
 `adapter`, and `runs`. Nothing on the webpage needs to change.
 
@@ -52,9 +52,9 @@ pipeline only with public progress/accounting or public-validation metrics.
 ## Run / stop
 
 ```bash
-python3 tracking/publisher.py --config tracking/config.json --once
-python3 tracking/publisher.py --config tracking/config.json --publish
-python3 tracking/test_publisher.py
+python3 scripts/ml_tracking/publisher.py --config /absolute/path/to/config.json --once
+python3 scripts/ml_tracking/publisher.py --config /absolute/path/to/config.json --publish
+python3 scripts/ml_tracking/test_publisher.py
 ```
 
 The loop runs independently of training. GitHub authentication uses the existing
