@@ -194,3 +194,12 @@ authorized push, verify the build and the actual custom-domain URL:
 push means the custom domain is updated. Feed updates require no site rebuild.
 Only commit dashboard code, documentation, and explicitly public snapshots;
 never commit credentials, local publisher state, or raw training records.
+
+## Pipeline navigation
+
+Desktop uses a persistent left pipeline list. At widths of 640px or less, a
+hamburger button opens a drawer; X, backdrop, Escape, or a pipeline selection
+closes it. Keyboard focus stays within the open drawer and returns to the
+trigger on close. The selection survives feed refreshes while its pipeline
+remains configured. This navigation is internal to the unlisted dashboard,
+not the website masthead.

@@ -2,7 +2,7 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const root = '/assets/data/';
-  let config, snapshot, busy = false, fallback = false, lastError = false;
+  let config, snapshot, busy = false, fallback = false, lastError = false, selectedPipeline = '';
   function el(tag, cls, text) { const n=document.createElement(tag); if(cls)n.className=cls; if(text!==undefined)n.textContent=text; return n; }
   const label = s => ({running:'Running',complete:'Complete',queued:'Queued',failed:'Failed',interrupted:'Interrupted',unknown:'Unknown'}[s] || 'Unknown');
   function badge(s) { return el('span','ml-badge '+s,label(s)); }
@@ -16,11 +16,20 @@
     $('ml-notice').hidden=!note; $('ml-notice').textContent=note;
   }
   function render() {
-    const selected=$('ml-pipeline').value;
-    $('ml-pipeline').replaceChildren(new Option('All pipelines',''));
-    for(const p of snapshot.pipelines)$('ml-pipeline').append(new Option(p.label,p.id));
-    if(snapshot.pipelines.some(p=>p.id===selected))$('ml-pipeline').value=selected;
-    const pipelines=snapshot.pipelines.filter(p=>!$('ml-pipeline').value||p.id===$('ml-pipeline').value);
+    const focused = document.activeElement?.closest('#ml-pipeline-list button')?.dataset.pipeline;
+    if(!snapshot.pipelines.some(p=>p.id===selectedPipeline))selectedPipeline='';
+    const list=$('ml-pipeline-list');list.replaceChildren();
+    $('ml-pipeline-count').textContent=snapshot.pipelines.length;
+    const choices=[{id:'',label:'All pipelines',runs:snapshot.pipelines.flatMap(p=>p.runs)},...snapshot.pipelines];
+    for(const choice of choices){
+      const button=el('button','ml-pipeline-option');button.type='button';button.dataset.pipeline=choice.id;
+      button.setAttribute('aria-pressed',String(choice.id===selectedPipeline));
+      const name=el('span','ml-pipeline-name',choice.label);
+      const meta=el('span','ml-pipeline-meta',choice.id ? `${label(choice.status)} · ${choice.runs.length} runs` : `${snapshot.pipelines.length} pipelines · ${choice.runs.length} runs`);
+      button.append(name,meta);list.append(button);
+      if(focused===choice.id)button.focus({preventScroll:true});
+    }
+    const pipelines=snapshot.pipelines.filter(p=>!selectedPipeline||p.id===selectedPipeline);
     const runs=pipelines.flatMap(p=>p.runs), stats=el('div','ml-stats');
     for(const [value,name] of [[pipelines.length,'Tracked pipelines'],[runs.filter(r=>r.status==='running').length,'Runs in progress'],[`${runs.filter(r=>r.status==='complete').length} / ${runs.length}`,'Runs complete']]){
       const stat=el('div','ml-stat');stat.append(el('strong','',value),el('span','',name));stats.append(stat);
@@ -56,7 +65,36 @@
     }catch(e){lastError=true;if(snapshot)freshness();else{$('ml-connection').textContent='Feed unavailable';$('ml-pipelines').replaceChildren(el('p','ml-empty','Unable to load progress. Try refreshing shortly.'));}}
     finally{busy=false;$('ml-refresh').disabled=false;}
   }
+  const mobile=window.matchMedia('(max-width: 640px)');
+  let menuOpen=false;
+  function setMenu(open,restoreFocus=true){
+    menuOpen=open&&mobile.matches;
+    $('main').classList.toggle('ml-menu-is-open',menuOpen);
+    $('ml-menu-open').setAttribute('aria-expanded',String(menuOpen));
+    document.body.classList.toggle('ml-drawer-open',menuOpen);
+    document.querySelector('.ml-content').inert=menuOpen;
+    document.querySelectorAll('.masthead,.page__footer').forEach(node=>{node.inert=menuOpen;});
+    if(menuOpen)$('ml-menu-close').focus();
+    else if(restoreFocus&&mobile.matches)$('ml-menu-open').focus();
+  }
+  $('ml-menu-open').addEventListener('click',()=>setMenu(true));
+  $('ml-menu-close').addEventListener('click',()=>setMenu(false));
+  $('ml-menu-backdrop').addEventListener('click',()=>setMenu(false));
+  mobile.addEventListener('change',()=>setMenu(false,false));
+  document.addEventListener('keydown',event=>{
+    if(!menuOpen)return;
+    if(event.key==='Escape'){event.preventDefault();setMenu(false);}
+    if(event.key==='Tab'){
+      const buttons=[...$('ml-sidebar').querySelectorAll('button')];
+      const first=buttons[0],last=buttons[buttons.length-1];
+      if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+      else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+    }
+  });
   $('ml-refresh').addEventListener('click',refresh);
-  $('ml-pipeline').addEventListener('change',()=>snapshot&&render());
+  $('ml-pipeline-list').addEventListener('click',event=>{
+    const button=event.target.closest('button[data-pipeline]');
+    if(button&&snapshot){selectedPipeline=button.dataset.pipeline;render();if(menuOpen)setMenu(false);}
+  });
   refresh();setInterval(refresh,120000);setInterval(freshness,30000);
 })();
