@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-17T20:31:52.699730+00:00",
+  "refresh_seconds": 120,
+  "pipelines": [
+    {
+      "id": "faist-nonprivate",
+      "label": "Fairness in federated ASR",
+      "description": "Whisper-tiny.en \u00b7 non-private FL \u00b7 five training seeds. Validation WER is preliminary; lower is better. DP training has not started.",
+      "status": "running",
+      "runs": [
+        {
+          "id": "seed-42",
+          "label": "Seed 42",
+          "status": "complete",
+          "stage": "Complete",
+          "completed": 300,
+          "total": 300,
+          "unit": "rounds",
+          "metrics": {
+            "A WER % (r100)": 15.507647048398814,
+            "A worst WER % (r100)": 21.571574257957167,
+            "B WER % (r100)": 15.875378808017437,
+            "B worst WER % (r100)": 22.1619880843755,
+            "C WER % (r100)": 15.781452141705213,
+            "C worst WER % (r100)": 21.415919703719606
+          }
+        },
+        {
+          "id": "seed-43",
+          "label": "Seed 43",
+          "status": "complete",
+          "stage": "Complete",
+          "completed": 200,
+          "total": 200,
+          "unit": "rounds",
+          "metrics": {
+            "B WER % (r100)": 16.296276605171283,
+            "B worst WER % (r100)": 22.83291288712361,
+            "C WER % (r100)": 16.13057578818651,
+            "C worst WER % (r100)": 21.335408727389833
+          }
+        },
+        {
+          "id": "seed-44",
+          "label": "Seed 44",
+          "status": "running",
+          "stage": "Central training / validation \u00b7 0/3 epochs evaluated",
+          "completed": 0,
+          "total": 200,
+          "unit": "rounds",
+          "metrics": {}
+        },
+        {
+          "id": "seed-45",
+          "label": "Seed 45",
+          "status": "queued",
+          "stage": "Awaiting updates",
+          "completed": 0,
+          "total": 200,
+          "unit": "rounds",
+          "metrics": {}
+        },
+        {
+          "id": "seed-46",
+          "label": "Seed 46",
+          "status": "queued",
+          "stage": "Awaiting updates",
+          "completed": 0,
+          "total": 200,
+          "unit": "rounds",
+          "metrics": {}
+        }
+      ]
+    }
+  ]
+}

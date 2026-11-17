@@ -1,0 +1,20 @@
+{
+  "interval_seconds": 120,
+  "snapshot_path": "/absolute/path/to/local/snapshot.json",
+  "pipelines": [
+    {
+      "id": "example",
+      "label": "Example experiment",
+      "description": "Replace with your training pipeline",
+      "adapter": "summary_json",
+      "base_dir": "/absolute/path/to/experiment",
+      "runs": [
+        {
+          "id": "main",
+          "label": "Main run",
+          "path": "public-progress.json"
+        }
+      ]
+    }
+  ]
+}

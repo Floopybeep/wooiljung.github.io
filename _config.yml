@@ -133,6 +133,7 @@ include:
   - _pages
   - files
 exclude:
+  - scripts/ml_tracking
   - '*.sublime-project'
   - '*.sublime-workspace'
   - .asset-cache

@@ -1,0 +1,21 @@
+---
+layout: default
+permalink: /ml_tracking/
+title: "ML tracking"
+excerpt: "Live progress across machine-learning experiments."
+sitemap: false
+---
+<link rel="stylesheet" href="{{ '/assets/css/ml-tracking.css' | relative_url }}">
+<main id="main" class="ml-tracking">
+  <header class="ml-heading">
+    <div><p class="ml-eyebrow">RESEARCH / EXPERIMENTS</p><h1>ML tracking<span>.</span></h1><p class="ml-intro">A live view of experiments in progress.</p></div>
+    <div class="ml-feed"><span id="ml-connection" role="status">Connecting…</span><small id="ml-updated">Waiting for a status snapshot</small><button type="button" id="ml-refresh">Refresh now ↻</button></div>
+  </header>
+  <p id="ml-notice" role="status" hidden></p>
+  <div class="ml-toolbar"><label for="ml-pipeline">Pipeline</label><select id="ml-pipeline"><option value="">Loading pipelines…</option></select><span>Updates approximately every 2 minutes</span></div>
+  <section id="ml-summary" aria-label="Experiment overview"></section>
+  <section id="ml-pipelines" aria-label="Training pipelines"><p>Loading training progress…</p></section>
+  <noscript>This dashboard needs JavaScript to load training progress.</noscript>
+  <footer class="ml-footnote">Only aggregate progress and evaluation metrics are published. Training rounds may finish before validation does. All timestamps use your browser’s local time.</footer>
+</main>
+<script src="{{ '/assets/js/ml-tracking.js' | relative_url }}" defer></script>
